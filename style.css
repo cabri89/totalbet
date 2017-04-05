@@ -1,0 +1,74 @@
+body{
+  font-family: Arial;
+}
+
+h1{
+  font-weight: normal;
+  text-align: center;
+  color: rgba(0,0,0,.3);
+}
+
+#holder.hover {
+   border: 2px dashed #0c0 !important;
+ }
+
+#holder {
+  /*Sort of important*/
+  width: 300px;
+  /*Sort of important*/
+  height: 200px;
+  position:absolute;
+  left:50%;
+  margin-left:-150px;
+  border: 2px dashed rgba(0,0,0,.3);
+  border-radius: 20px;
+  font-family: Arial;
+  text-align: center;
+  position: relative;
+  line-height: 180px;
+  font-size: 20px;
+  color: rgba(0,0,0,.3);
+}
+
+#yourBtn{
+  position: relative;
+  font-family: Arial;
+  width: 150px;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px dashed #BBB;
+  text-align: center;
+  background-color: #DDD;
+  cursor:pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+#htmlFile{
+  display: none;
+}
+
+#result{
+  text-align: center;
+  width: 100%;
+  min-width: 150px;
+  height: 60px;
+  max-width: 600px;
+margin-right: auto;
+margin-left: auto;
+}
+
+#result td{
+  width: 50%;
+  border: none !important
+}
+
+#gain{
+      background-color: #7aea7a;
+}
+
+#depense{
+      background-color: #ffb86e;
+}

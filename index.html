@@ -2,17 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Totalbet</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <input type="file" onchange="loadFile()" name="htmlFile" id="htmlFile" value="">
-
+  <h1>Total Bet</h1>
   <div id="test" style="display:none;"></div>
 
-  <div class="">
-    <span id="depense"></span>€
-    <span id="gain"></span>€
+<table id="result">
+  <tr>
+    <td id="depense"></td>
+    <td id="gain"></td>
+  </tr>
+
+</table>
+
+  <div id="holder" style="" id="holder">
+    Glissez un fichier ici ...
+    <input type="file" onchange="sub(this)" name="htmlFile" id="htmlFile" value="">
   </div>
+
+  <div id="yourBtn" onclick="getFile()">Ou cliquez ici</div>
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

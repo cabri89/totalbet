@@ -52,8 +52,8 @@ function readTextFile(file)
                 centDepense = centDepense / 100;
                 var totalDepense = decimalDepense + centDepense;
 
-                document.getElementById('depense').innerHTML = totalDepense;
-                document.getElementById('gain').innerHTML = totalGain;
+                document.getElementById('depense').innerHTML = "Dépensé " + totalDepense + "€";
+                document.getElementById('gain').innerHTML = "Gagné " + totalGain + "€";
 
             }
         }
@@ -61,27 +61,47 @@ function readTextFile(file)
     rawFile.send(null);
 }
 
-function loadFile(){
-    var xhr, form,resTopScore;
+function readfiles(files) {
+  var xhr, form,resTopScore;
 
-    var file = document.getElementById('htmlFile').files[0];
+  var file = files[0];
 
-    xhr = new XMLHttpRequest();
-    xhr.open('POST', 'upload.php');
+  xhr = new XMLHttpRequest();
+  xhr.open('POST', 'upload.php');
 
-    form = new FormData();
-    form.append('htmlFile',file);
+  form = new FormData();
+  form.append('htmlFile',file);
 
-    function handleLoad(evt)
-    {
-        resTopScore = evt;
-        readTextFile("files/"+resTopScore.srcElement.responseText);
-    }
+  function handleLoad(evt)
+  {
+      resTopScore = evt;
+      readTextFile("files/"+resTopScore.srcElement.responseText);
+  }
 
-    function handleError(evt) {
-    }
+  function handleError(evt) {
+  }
 
-    xhr.addEventListener('load', handleLoad);
-    xhr.addEventListener('error', handleError);
-    xhr.send(form);
+  xhr.addEventListener('load', handleLoad);
+  xhr.addEventListener('error', handleError);
+  xhr.send(form);
 }
+
+var holder = document.getElementById('holder');
+holder.ondragover = function () { this.className = 'hover'; return false; };
+holder.ondragend = function () { this.className = ''; return false; };
+holder.ondrop = function (e) {
+  this.className = '';
+  e.preventDefault();
+  readfiles(e.dataTransfer.files);
+}
+
+function getFile(){
+  document.getElementById("htmlFile").click();
+}
+
+function sub(obj){
+   var file = obj.value;
+   var fileName = file.split("\\");
+   document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
+   readfiles(document.getElementById('htmlFile').files);
+ }
