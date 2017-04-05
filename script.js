@@ -75,7 +75,6 @@ function loadFile(){
     function handleLoad(evt)
     {
         resTopScore = evt;
-        console.log(resTopScore.srcElement.responseText);
         readTextFile("files/"+resTopScore.srcElement.responseText);
     }
 
@@ -86,5 +85,3 @@ function loadFile(){
     xhr.addEventListener('error', handleError);
     xhr.send(form);
 }
-
-// readTextFile("test.html");
